@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <div class="container">
+    <div>
         <div class="answer"></div>
         <form>
-            <input type="text" class="question">
-            <button type="submit">질문하기!</button>
+            <div class="question">
+                <input type="text">
+                <button type="submit">질문하기!</button>
+                <button type="submit">지우기!</button>
+            </div>
         </form>
-    </div>
+    </div class="test">
     <script >
         const $input = document.querySelector('input')
         const $button = document.querySelector('button')
@@ -23,7 +26,7 @@
         const data = []
         data.push({
             "role": "system",
-            "content": "assistant대화한다."
+            "content": "assistant는 전문가다."
         })
 
         const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`
