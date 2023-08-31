@@ -4,61 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>건강 체크</title>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <div>
-        <div class="answer"></div>
-        <form>
-            <div class="question">
-                <input type="text">
-                <button type="submit">질문하기!</button>
-                <button type="submit">지우기!</button>
+        <div class="side-bar" id="side-bar-sub">
+            <div>
+                <h1 id="side-title">여행을<br>가자</h1>
             </div>
-        </form>
-    </div class="test">
-    <script >
-        const $input = document.querySelector('input')
-        const $button = document.querySelector('button')
-        const $answer = document.querySelector('.answer')
+            <ul>
+                <li class="side-bar-button">
+                    <a href="#" id="page1" class="btn">지역 안내</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h1>건강 체크</h1>
+        </div>
 
-        const data = []
-        data.push({
-            "role": "system",
-            "content": "assistant는 전문가다."
-        })
+        <div id="wrap">
+            <div class="answer"></div>
+            <div class="question">
+                <form>
+                    <input type="text">
+                    <button type="submit">질문하기!</button>
+                    <button type="reset" class="clean">지우기!</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`
-        
-        $button.addEventListener('click', e => {
-            e.preventDefault()
-            const contents = $input.value
-            data.push({
-                "role": "user",
-                "content": contents
-            })
-            $input.value = ''
-
-            chatGPTAPI()
-        })
-
-        function chatGPTAPI() {
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data),
-                redirect: 'follow'
-            })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                // 답변 온 것을 assistant로 저장
-                $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
-            })
-        }
-    </script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
