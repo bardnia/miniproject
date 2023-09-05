@@ -1,0 +1,109 @@
+body{
+    background-color: blanchedalmond;
+    margin: 0px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+ul{
+    background-color: aliceblue;
+    border: 1px solid rgb(32, 1, 1);
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.side-bar { display: block !important; }
+
+#side-title {
+    display: flex;
+    justify-content: center;
+}
+
+#side-bar-sub {
+    display: block;
+    float: left;
+    padding: 1rem;
+    width: auto;
+    width: 200px;
+    height: 100vh;
+    background-color: #44c1f3;
+}
+
+
+#wrap{
+    float: none;
+}
+
+
+
+.question {
+    width: 350px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    display: inline-block;
+}
+
+.answer {
+    background-color: aquamarine;
+    width: 350px;
+    height: 400px;
+    margin: 20px auto;
+    overflow-y: scroll;
+}
+
+/*   메인 화면 사이즈   */
+
+.main-content {
+    background-color: aquamarine;
+    width: 800px;
+    height: 400px;
+    margin: 20px auto;
+}
+
+.main-content>div {
+    background-color: blue;
+    display: flex;
+}
+
+.main-content>div>div {
+    background-color: rgb(40, 115, 177);
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*  페이지 연결  */
+
+.page1{
+    background-image: url(../img/webtoon.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.page2{
+    background-image: url(../img/webtext.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.page3{
+    background-image: url(../img/movie.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.page4{
+    background-image: url(../img/drama.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
