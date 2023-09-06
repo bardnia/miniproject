@@ -12,7 +12,7 @@
 
 # 3. 프로젝트 구성
 
-   ## 정보 구조
+   ## 프로젝트 구조
    ![s3tree](https://github.com/bardnia/miniproject/assets/69304793/c34d8cdb-95d9-4aff-9f74-7ca231a43085)
 
 
