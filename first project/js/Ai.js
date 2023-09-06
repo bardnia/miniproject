@@ -14,16 +14,6 @@ const $pageset = document.querySelector("body");
 const pagetema = window.localStorage.getItem('tema');
 
 
-$(function () {
-    $("#checkboxShowGPSInfo").change(function(){
-        if($("#checkboxShowGPSInfo").is(":checked")){
-            alert("체크박스 체크했음!");
-        }else{
-            alert("체크박스 체크 해제!");
-        }
-    });
-});
-
 $back.addEventListener ('click', e => {
     window.location.href="../html/index.html"
 })
