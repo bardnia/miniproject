@@ -15,7 +15,7 @@ const pagetema = window.localStorage.getItem('tema');
 
 
 $back.addEventListener ('click', e => {
-    window.location.href="../html/index.html"
+    window.location.href="../index.html"
 })
 
 $next.addEventListener ('click', e => {
@@ -70,42 +70,6 @@ $button.addEventListener("click", async function (e) {
     
     $print.setAttribute("style", "display:block;");
     $mini.setAttribute("style", "display:none;");
-    
-    let result = await chatGPTAPI();
-    result = result.replaceAll("\n", "<br>");
-    console.log(result);
-    
-    //데이터정제과정//
-    let [title, ingredient] = result.split("재료:");
-    
-    if (title.indexOf(":") !== -1) {
-        title = title.split(": ")[1];
-    }
-    title = title.replaceAll("<br>", "");
-    
-    let recipe;
-    [ingredient, recipe] = ingredient.split("요리방법:<br>");
-    
-    if (ingredient.includes("<br>-")) {
-        ingredient = ingredient.replace("<br>-", "");
-        ingredient = ingredient.replaceAll("<br>-", ", ");
-    }
-    if (ingredient.includes("<br><br>")) {
-        ingredient = ingredient.replace("<br><br>", "");
-    }
-    
-    if (recipe.includes("<br><br>")) {
-        recipe = recipe.split("<br><br>")[0];
-    }
-    if ("<br>" === recipe.slice(0, 4)) {
-        recipe = recipe.replace("<br>", "");
-    }
-    recipe = recipe.replaceAll("<br>", "</li><li>");
-    recipe = recipe.replace(/\d{1,3}. /g, "");
-    
-    makeRecipeHTML(title, ingredient, recipe, $answer, true);
-    $loading.setAttribute("style", "display:none;");
-    $answer.setAttribute("style", "display:flex;");
 });
 
 function gettema(inputs, resultArr) {
@@ -155,41 +119,23 @@ $button_clean.addEventListener('click', e => {
     chatGPTAPI_clean()
 })
 
-async function chatGPTAPI() {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
+
+function chatGPTAPI() {
+    fetch(url, {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-        redirect: "follow",
-      });
-      const json = await response.json();
-      console.log(json);
-      const result = json.choices[0].message.content;
-      return result;
-    } catch {
-        alert("잠시 후 다시 시도해 주십시오.");
-      }
+        redirect: 'follow'
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log(res)
+        // 답변 온 것을 assistant로 저장
+        $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
+    })
 }
-
-// function chatGPTAPI() {
-//     fetch(url, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(data),
-//         redirect: 'follow'
-//     })
-//     .then(res => res.json())
-//     .then(res => {
-//         console.log(res)
-//         // 답변 온 것을 assistant로 저장
-//         $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
-//     })
-// }
 
 function chatGPTAPI_clean() {
     $answer.innerHTML = ``
