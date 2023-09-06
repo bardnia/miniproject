@@ -1,15 +1,109 @@
 const $input = document.querySelector('input')
 const $button = document.querySelector('button')
+const $buttongo = document.querySelector('button.load')
 const $button_clean = document.querySelector('button.clean')
+
 const $answer = document.querySelector('.answer')
+const $print = document.querySelector("#print");
+const $webtoon = document.querySelector("#webtoon_main");
+const $tema = document.getElementsByName("tema");
+
+
+
+$buttongo.addEventListener('click', e => {
+    e.preventDefault()
+    $print.setAttribute("style", "display:block;");
+    $webtoon.setAttribute("style", "display:none;");
+})
+
+
+$button.addEventListener("click", async function (e) {
+    e.preventDefault();
+    let selects = []; //체크박스, 라디오버튼 체크된 내용이 담길 예정
+    gettema($tema, selects);
+    const contents = makeContents($textarea.value, selects);
+    console.log(contents);
+
+    data.push({
+        role: "user",
+        content: contents,
+    });
+    
+    $mainDiv.setAttribute("style", "display:none;");
+    $loading.setAttribute("style", "display:block;");
+    
+    let result = await chatGPTAPI();
+    result = result.replaceAll("\n", "<br>");
+    console.log(result);
+    
+    //데이터정제과정//
+    let [title, ingredient] = result.split("재료:");
+    
+    if (title.indexOf(":") !== -1) {
+        title = title.split(": ")[1];
+    }
+    title = title.replaceAll("<br>", "");
+    
+    let recipe;
+    [ingredient, recipe] = ingredient.split("요리방법:<br>");
+    
+    if (ingredient.includes("<br>-")) {
+        ingredient = ingredient.replace("<br>-", "");
+        ingredient = ingredient.replaceAll("<br>-", ", ");
+    }
+    if (ingredient.includes("<br><br>")) {
+        ingredient = ingredient.replace("<br><br>", "");
+    }
+    
+    if (recipe.includes("<br><br>")) {
+        recipe = recipe.split("<br><br>")[0];
+    }
+    if ("<br>" === recipe.slice(0, 4)) {
+        recipe = recipe.replace("<br>", "");
+    }
+    recipe = recipe.replaceAll("<br>", "</li><li>");
+    recipe = recipe.replace(/\d{1,3}. /g, "");
+    
+    makeRecipeHTML(title, ingredient, recipe, $answer, true);
+    $loading.setAttribute("style", "display:none;");
+    $answer.setAttribute("style", "display:flex;");
+});
+
+function gettema(inputs, resultArr) {
+    inputs.tema((input) => {
+        if (input.checked) {
+            resultArr.push(input.defaultValue);
+        }
+    });
+}
+
+function makeContents(ingredients, selects) {
+    let content = ``;
+    selects.forEach((select) => {
+        if (selects.length === 1) {
+        //라디오버튼값만 있음
+            content += "";
+        } else if (select !== "true" && select !== "false") {
+        //체크박스 선택한 내용
+            content += select + ", ";
+        } else {
+            content = content.slice(0, -2);
+            content += "만 있어. ";
+        }
+    });
+    content += "을/를 주제로 찾아줘. 제목:, 줄거리: 순서로 알려주고 다른 말은 하지마.";
+    return content;
+    // ex)  판타지, 로멘스 을/를 주제로 찾아줘. 제목:, 줄거리: 순서로 알려주고 다른 말은 하지마.
+}
 
 const data = []
 data.push({
     "role": "system",
-    "content": "assistant는 전문가다."
+    "content": "assistant는 웹툰을 잘 아는 전문가이다."
 })
 
 const url = `https://estsoft-openai-api.jejucodingcamp.workers.dev/`
+
 
 $button.addEventListener('click', e => {
     e.preventDefault()
@@ -22,6 +116,7 @@ $button.addEventListener('click', e => {
 
     chatGPTAPI()
 })
+
 
 $button_clean.addEventListener('click', e => {
     e.preventDefault()
@@ -50,3 +145,4 @@ function chatGPTAPI() {
 function chatGPTAPI_clean() {
     $answer.innerHTML = ``
 }
+

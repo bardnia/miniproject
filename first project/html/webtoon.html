@@ -6,41 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>건강 체크</title>
     <link rel="stylesheet" href="../css/main.css">
+    <script defer src="../js/Ai.js" type="module"></script>
 </head>
+
 <body>
-    <div id="wrap">
-        <div class="question">
-            <form>
-                <div>
-                    <div class="radio-box">
-                        <input type="radio" name="genre" id="남">: 남
-                        <input type="radio" name="genre" id="여">: 여
-                        <input type="radio" name="genre" id="남">: 남
-                        <input type="radio" name="genre" id="여">: 여
-                        <input type="radio" name="genre" id="남">: 남
+    <div id="webtoon_main">
+        <div id="wrap">
+            <div class="radiobox">
+                <form>
+                    <div>
+                        <div class="radio-box">
+                            <input type="checkbox" class="radiosub" id="romance" value="로멘스" name="tema"><p>: 로멘스</p>
+                            <input type="checkbox" class="radiosub" id="action" value="액션" name="tema"><p>: 액션</p>
+                            <input type="checkbox" class="radiosub" id="fantasy" value="판타지" name="tema"><p>: 판타지</p>
+                            <input type="checkbox" class="radiosub" id="drama" value="드라마" name="tema"><p>: 드라마</p>
+                            <input type="checkbox" class="radiosub" id="thriller" value="스릴러" name="tema"><p>: 스릴러</p>
+                        </div>
+                        <div class="radio-box">
+                            <input type="checkbox" class="radiosub" id="comedy" value="코미디" name="tema"><p>: 코미디</p>
+                            <input type="checkbox" class="radiosub" id="school" value="학원" name="tema"><p>: 학원</p>
+                            <input type="checkbox" class="radiosub" id="sports" value="스포츠" name="tema"><p>: 스포츠</p>
+                            <input type="checkbox" class="radiosub" id="mystery" value="미스테리" name="tema"><p>: 미스테리</p>
+                            <input type="checkbox" class="radiosub" id="historical" value="사극" name="tema"><p>: 사극</p>
+                        </div>
                     </div>
-                    <div class="radio-box">
-                        <input type="radio" name="genre" id="여">: 여
-                        <input type="radio" name="genre" id="남">: 남
-                        <input type="radio" name="genre" id="여">: 여
-                        <input type="radio" name="genre" id="남">: 남
-                        <input type="radio" name="genre" id="여">: 여
-                    </div>
-                </div>
-                <div><input type="text"></div>
-                <button type="submit">검색</button>
-            </form>
+                    <button type="submit" class="load">검색</button>
+                </form>
+            </div>
+        </div>
+        <div class="buttonbox">
+            <button><a href="index.html">pre</a></button>
+            <button class="pre" onclick="pre()">pre </button>
+            <button><a href="002.html">next</a></button>
         </div>
     </div>
-    <button><a href="main.html">pre</a></button>
-    <button><a href="002.html">next</a></button>
-    <script>
-        document.getElementById('남').addEventListener('click',function(){
-            localStorage.setItem('genre','남');
-        });
-        document.getElementById('여').addEventListener('click',function(){
-            localStorage.setItem('genre','여');
-        });
-    </script>
+
+
+    <div id="print" style="display: none;">
+        <div class="side-bar" id="side-bar-sub">
+            <div onclick="location.href='index.html'">
+                <h1 id="side-title">메인<br>으로</h1>
+            </div>
+            <div class="bakepage" onclick="location.href='webtext.html'">
+                <h1 id="side-title">웹툰</h1>
+            </div>
+            <div class="bakepage" onclick="location.href='webtext.html'">
+                <h1 id="side-title">웹소설</h1>
+            </div>
+            <div class="bakepage" onclick="location.href='movie.html'">
+                <h1 id="side-title">영화</h1>
+            </div>
+            <div class="bakepage" onclick="location.href='drama.html'">
+                <h1 id="side-title">드라마</h1>
+            </div>
+        </div>
+
+        <div>
+            <h1>Ai 추천</h1>
+        </div>
+        <div id="wrap">
+            <div class="answer"></div>
+            <div class="question">
+                <form>
+                    <div class="request"><input type="text"></div>
+                    <button type="submit" class="load">질문하기!</button>
+                    <button type="reset" class="clean">지우기!</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

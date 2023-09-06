@@ -16,6 +16,17 @@ ul{
     padding: 0;
 }
 
+button{
+    padding: 10px 30px;
+    background-color: skyblue;
+    border: none;
+    color: white;
+}
+
+.backpage{
+    box-shadow: 1px 4px 0 rgb(0,0,0,0.5);
+}
+
 .side-bar { display: block !important; }
 
 #side-title {
@@ -26,29 +37,28 @@ ul{
 #side-bar-sub {
     display: block;
     float: left;
-    padding: 1rem;
-    width: auto;
+    margin: 65px 0px 200px 0px;
+    padding: 8px;
     width: 200px;
-    height: 100vh;
+    height: 390px;
     background-color: #44c1f3;
 }
 
 
-#wrap{
-    float: none;
-}
-
-
-
-.question {
-    width: 350px;
-    margin: 20px auto;
+.buttonbox{
+    margin-top: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .button{
+    width: 100px;
+    height: 30px;
     display: inline-block;
+}
+
+#wrap{
+    float: none;
 }
 
 .answer {
@@ -57,6 +67,18 @@ ul{
     height: 400px;
     margin: 20px auto;
     overflow-y: scroll;
+}
+
+.question {
+    width: 350px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.request{
+    
+    margin: 10px auto;
 }
 
 /*   메인 화면 사이즈   */
@@ -79,6 +101,31 @@ ul{
     height: 200px;
     display: flex;
     flex-direction: row;
+}
+
+.radio-box{
+    height: 50px;
+    width: 800;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.radio-box>p {
+    margin: 0px;
+    width: 90px;
+}
+
+input.radiosub{
+    margin-top: 5px;
+    height: 15px;
+    width: 15px;
+}
+
+button.ai{
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
 }
 
 /*  페이지 연결  */
