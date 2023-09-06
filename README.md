@@ -10,22 +10,33 @@
 
    visual studio code를 이용한 HTML, CSS, JavaScript를 이용하였다.
 
-# 프로젝트 구성
-   ### 정보 구조
+# 3. 프로젝트 구성
+
+   ## 정보 구조
    ![s3tree](https://github.com/bardnia/miniproject/assets/69304793/c34d8cdb-95d9-4aff-9f74-7ca231a43085)
 
 
       
-   ### 기능구성
-      1. 웹툰, 웹소설, 영화, 드라마를 타겟으로한 검색기능
-      2. 각 타겟별 자유 검색기능
-      
-   ### 함수 구현
-      1. 큰 분류인 Sun, Clouds, Snow, Rain에 따른 행동양식 추천 함수.
-      2. User의 대화를 받는 함수 & AI가 응답하는 함수.
-      3. 실시간 대화를 하기 위한 메시지 추가&전송 함수.
-      4. 모든 대화 기록을 저장 및 삭제하는 함수.
-      5. 실시간 날씨 및 행동 추천 이후 3일간의 날씨 상황 예보하는 함수.
+   ## 기능구성
+   
+   ###1. 웹툰, 웹소설, 영화, 드라마를 타겟으로한 검색기능
+  ![main](https://github.com/bardnia/miniproject/assets/69304793/4332ac50-b55b-4a96-a9f4-f0474e4d6431)
+  ![chek](https://github.com/bardnia/miniproject/assets/69304793/059bd94a-6a98-4e1c-9b7c-084d2d097d19)
+
+   ###2. 각 타겟별 자유 검색기능
+   ![rufrhk](https://github.com/bardnia/miniproject/assets/69304793/b0d10d0e-5a16-43ba-811c-41931dfb8a8e)
+
+   
      
-# 추가할 내용
+# 4. 이후 방향
+
+##1. 구현 완료
+   1. 각 타겟별 자유 검색기능
+   2. 기본 틀 ui
+   3. 구성 데이터 구현
+   4. 
+##2. 미완성
+   1. 각 타겟별 기본 검색기능
+   2. ux/ui의 수정
+   3. 코드의 간결화가 필요
    
