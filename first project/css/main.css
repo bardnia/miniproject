@@ -29,6 +29,10 @@ button{
 
 .side-bar { display: block !important; }
 
+#print{
+    display: none;
+}
+
 #side-title {
     display: flex;
     justify-content: center;
@@ -38,7 +42,6 @@ button{
     display: block;
     float: left;
     margin: 65px 0px 200px 0px;
-    padding: 8px;
     width: 200px;
     height: 390px;
     background-color: #44c1f3;
@@ -46,7 +49,7 @@ button{
 
 
 .buttonbox{
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     justify-content: space-around;
 }
@@ -55,6 +58,12 @@ button{
     width: 100px;
     height: 30px;
     display: inline-block;
+}
+
+button.load{
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 #wrap{
@@ -70,14 +79,14 @@ button{
 }
 
 .question {
-    width: 350px;
     margin: 50px auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .request{
-    
+    display: flex;
+    justify-content: center;
     margin: 10px auto;
 }
 
@@ -122,11 +131,6 @@ input.radiosub{
     width: 15px;
 }
 
-button.ai{
-    margin: 0px auto;
-    display: flex;
-    justify-content: center;
-}
 
 /*  페이지 연결  */
 
