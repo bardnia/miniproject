@@ -12,7 +12,7 @@
 
 # 프로젝트 구성
    ### 정보 구조
-     ![tree](https://github.com/bardnia/miniproject/assets/69304793/b6e87731-ea72-45dd-8118-758f686a6553)
+
 
       
    ### 추가한 내용
