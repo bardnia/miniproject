@@ -11,7 +11,6 @@ const $mini = document.querySelector("#mini_main");
 const $tema = document.getElementsByName("tema");
 const $pageset = document.querySelector("body");
 
-const pagetema = window.localStorage.getItem('tema');
 
 
 $back.addEventListener ('click', e => {
